@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘购物后台管理</title>
+    <!-- 引入bootstrap库 -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <!-- 引用NProgtess -->
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <!-- 引入表单验证插件的css -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <!-- 当前页面的css -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <aside class="lt_aside">
+        <div class="brand">
+            <a href="index.html">ITCAST</a>
+        </div>
+        <div class="user">
+            <img src="./images/default.png" alt="">
+            <span>超级管理员</span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="userManage.html">
+                        <span class="glyphicon glyphicon-user"> 用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="glyphicon glyphicon-list"> 分类管理</span>
+                    </a>
+                    <div class="child">
+                        <a href="categoryFrist.html">一级分类&nbsp </a>
+                        <a href="categorySecond.html">二级分类&nbsp </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <span class="glyphicon glyphicon-tags"> 商品管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </aside>
+    <section class="lt_section">
+        <div class="lt_nav">
+            <a data-menu href="#">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </a>
+            <a data-logout href="#myModal" data-toggle="modal">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Launch demo modal
+            </button> -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="alert alert-danger">
+                                <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <a type="button" class="btn btn-primary" href="http://localhost:3000/">确定</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <!--路径导航-->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li class="active">分类管理</li>
+                <li class="active">二级分类</li>
+            </ol>
+        </div>
+        <div class="add_content container-fluid">
+            <button type="button" class="btn btn-default addBtn " data-toggle="modal" data-target="#exampleModal">添加商品</button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="exampleModalLabel">编辑商品</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#" id="form">
+
+                                <div class="form-group">
+                                    <input name="brandName" type="text" class="form-control" placeholder="请输入商品名称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label"></label>
+                                    <textarea class="form-control" id="message-text" placeholder="请输入商品描述"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input name="brandName" type="text" class="form-control" placeholder="请输入商品库存">
+                                </div>
+                                <div class="form-group">
+                                    <input name="brandName" type="text" class="form-control" placeholder="请输入商品价格">
+                                </div>
+                                <div class="form-group">
+                                    <input name="brandName" type="text" class="form-control" placeholder="请输入商品原价">
+                                </div>
+                                <div class="form-group">
+                                    <input name="brandName" type="text" class="form-control" placeholder="请输入商品尺寸">
+                                </div>
+                                <div class="form-group">
+                                    <input type="hidden" name="brandLogo">
+                                    <div class="fileupload">
+                                        <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default">
+                                        <a href="javascript:;" class="btn btn-default">上传图片</a>
+                                        <span>提示：必须上传三个图片</span>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="5%">序号</th>
+                        <th width="25%">商品名称</th>
+                        <th width="25%">商品库存</th>
+                        <th width="10%">商品尺寸</th>
+                        <th width="10%">商品状态</th>
+                        <th width="10%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+
+
+    <!-- 引入jquery -->
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <!-- 引入bootstrap插件 -->
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入echarts库 -->
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <!-- 引入表单验证插件 -->
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <!-- 引入进度条插件 -->
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入admin文件 -->
+    <script src="./js/admin.js"></script>
+    <!-- 引入index.js -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
